@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.maximcode.mccalculator.HostActivity">
+    <item
+        android:id="@+id/actionHistory"
+        android:title="@string/action_history"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/actionPrivacyPolicy"
+        android:title="@string/privacy_policy"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/actionSendFeedback"
+        android:title="@string/send_feedback"
+        app:showAsAction="never" />
+</menu>
