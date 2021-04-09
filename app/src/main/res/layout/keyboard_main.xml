@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/keyboard"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableRow android:layout_weight="1">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/leftBracketBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large"
+            android:text="@string/left_bracket" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/rightBracketBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large"
+            android:text="@string/right_bracket" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/percentBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large"
+            android:text="@string/percent" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/clearBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large"
+            android:text="@string/clearAll" />
+    </TableRow>
+
+    <TableRow android:layout_weight="1">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sqrtBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large"
+            android:text="@string/square_root" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/squaredBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large"
+            android:text="@string/squared" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/factorialBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large"
+            android:text="@string/factorial" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/divideBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large"
+            android:text="@string/divide" />
+    </TableRow>
+
+    <TableRow android:layout_weight="1">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/digit7Btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large.Secondary"
+            android:text="@string/digit_seven" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/digit8Btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large.Secondary"
+            android:text="@string/digit_eight" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/digit9Btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large.Secondary"
+            android:text="@string/digit_nine" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/multiplyBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large"
+            android:text="@string/multiply" />
+    </TableRow>
+
+    <TableRow android:layout_weight="1">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/digit4Btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large.Secondary"
+            android:text="@string/digit_four" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/digit5Btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large.Secondary"
+            android:text="@string/digit_five" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/digit6Btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large.Secondary"
+            android:text="@string/digit_six" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/subtractBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large"
+            android:text="@string/subtract" />
+    </TableRow>
+
+    <TableRow android:layout_weight="1">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/digit1Btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large.Secondary"
+            android:text="@string/digit_one" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/digit2Btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large.Secondary"
+            android:text="@string/digit_two" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/digit3Btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large.Secondary"
+            android:text="@string/digit_three" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large"
+            android:text="@string/add" />
+    </TableRow>
+
+    <TableRow android:layout_weight="1">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/digit0Btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large.Secondary"
+            android:text="@string/digit_zero" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/digit00Btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large.Secondary"
+            android:text="@string/digit_double_zero" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dotBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large.Secondary"
+            android:text="@string/dot" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/equalsBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            style="@style/TextBtn.Large"
+            android:text="@string/equals" />
+    </TableRow>
+</TableLayout>
