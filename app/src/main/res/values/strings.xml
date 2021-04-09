@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">MC Calculator</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="privacy_policy_url">
+        https://sites.google.com/view/mc-calculator/privacy-policy
+    </string>
+    <string name="recycler_view_item_today">Today</string>
+    <string name="email">sm.maksim@icloud.com</string>
+    <string name="feedback_email_subject">Subject of feedback</string>
+    <string name="feedback_email_body">Write your feedback</string>
+
+    <string name="last_result">0</string>
+    <string name="left_bracket">(</string>
+    <string name="right_bracket">)</string>
+    <string name="percent">%</string>
+    <string name="clearAll">AC</string>
+    <string name="clear">CE</string>
+    <string name="square_root">√</string>
+    <string name="squared">x²</string>
+    <string name="factorial">x!</string>
+    <string name="divide">÷</string>
+    <string name="digit_seven">7</string>
+    <string name="digit_eight">8</string>
+    <string name="digit_nine">9</string>
+    <string name="multiply">x</string>
+    <string name="digit_four">4</string>
+    <string name="digit_five">5</string>
+    <string name="digit_six">6</string>
+    <string name="subtract">-</string>
+    <string name="digit_one">1</string>
+    <string name="digit_two">2</string>
+    <string name="digit_three">3</string>
+    <string name="add">+</string>
+    <string name="digit_double_zero">00</string>
+    <string name="digit_zero">0</string>
+    <string name="dot">.</string>
+    <string name="equals">=</string>
+    <string name="radians">Rad</string>
+    <string name="degree">Deg</string>
+    <string name="sin_1">sin⁻¹</string>
+    <string name="cos_1">cos⁻¹</string>
+    <string name="tan_1">tan⁻¹</string>
+    <string name="x_y">xʸ</string>
+    <string name="ten_y">10ʸ</string>
+    <string name="ln2">ln2</string>
+    <string name="sin">sin</string>
+    <string name="ln">ln</string>
+    <string name="PI">π</string>
+    <string name="cos">cos</string>
+    <string name="log">log</string>
+    <string name="e">e</string>
+    <string name="tan">tan</string>
+    <string name="last_answer">Ans</string>
+    <string name="exponential_function">Exp</string>
+    <string name="round">Rnd</string>
+    <string name="last_expression">%s =</string>
+    <string name="action_history">History</string>
+    <string name="action_clear_history">Clear</string>
+    <string name="empty_string">""</string>
+    <string name="degree_label">"Deg"</string>
+    <string name="send_feedback">Send Feedback</string>
+</resources>
