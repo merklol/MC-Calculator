@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="keyboardBackgroundColor" format="reference"/>
+    <attr name="historyItemDateColor" format="reference"/>
+    <attr name="historyItemExprTextColor" format="reference"/>
+    <attr name="historyItemExprResultTextColor" format="reference"/>
+    <attr name="historyItemBorderColor" format="reference"/>
+</resources>

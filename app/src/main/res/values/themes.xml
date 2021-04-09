@@ -1,0 +1,61 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.MCCalculator" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/blue_500</item>
+        <item name="colorPrimaryVariant">@color/blue_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/yellow_500</item>
+        <item name="colorSecondaryVariant">@color/yellow_500</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="historyItemExprTextColor">@color/grey_800</item>
+        <item name="historyItemExprResultTextColor">@color/black</item>
+        <item name="historyItemDateColor">@color/blue_500</item>
+        <item name="historyItemBorderColor">@color/grey_300</item>
+        <item name="keyboardBackgroundColor">@color/white</item>
+    </style>
+
+    <style name="TextBtn.Large" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:textColor">@color/blue_500</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:insetLeft">4dp</item>
+        <item name="android:insetRight">4dp</item>b
+        <item name="android:insetTop">4dp</item>
+        <item name="android:insetBottom">4dp</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="TextBtn.Medium" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:textColor">@color/blue_500</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:insetLeft">4dp</item>
+        <item name="android:insetRight">4dp</item>b
+        <item name="android:insetTop">4dp</item>
+        <item name="android:insetBottom">4dp</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="Theme.MCCalculator.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ActionBarTextAppearance" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextBtn.Large.Secondary" parent="TextBtn.Large">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextBtn.Medium.Secondary" parent="TextBtn.Medium">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Theme.MCCalculator.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="Theme.MCCalculator.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+</resources>
