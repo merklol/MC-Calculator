@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/outputView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    android:background="?attr/colorPrimary">
+
+    <TextView
+        android:id="@+id/lastExpression"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/expression"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:gravity="end|bottom"
+        android:maxLines="1"
+        android:ellipsize="start"
+        android:text=""/>
+    <TextView
+        android:id="@+id/angleMeasure"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="1"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:gravity="bottom"
+        app:layout_constraintTop_toBottomOf="@id/lastExpression"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/expression"
+        app:layout_constraintBottom_toBottomOf="parent" />
+    <TextView
+        android:id="@+id/expression"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintHorizontal_weight="10"
+        app:layout_constraintTop_toBottomOf="@id/lastExpression"
+        app:layout_constraintStart_toEndOf="@id/angleMeasure"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:gravity="end|bottom"
+        android:maxLines="1"
+        android:ellipsize="start"
+        android:text="@string/last_result"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
