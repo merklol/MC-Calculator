@@ -1,4 +1,4 @@
-<img src="mc_calculator.png" alt="mc-calculator-logo" width="261px" height="150px"/>
+<img src="mc_calculator.png" alt="mc-calculator-logo" width="150px" height="150px"/>
 <br>
 
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE.md)
