@@ -50,7 +50,7 @@
 ### Suggestions
 
 If you have general suggestions, please feel free to submit a new 
-[Github issue](https://github.com/merklol/xxx/issues/new).
+[Github issue](https://github.com/merklol/MC-Calculator/issues/new).
 
 
 ### License
