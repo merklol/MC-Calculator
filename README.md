@@ -1,9 +1,6 @@
 ### MC Calculator
 > MC Calculator helps you to make everyday basic arithmetic operations or complex calculations in modern design.
 
-<img src="mc_calculator.png" alt="mc-calculator-logo" width="150px" height="150px"/>
-<br>
-
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE.md)
 [![Language](https://img.shields.io/badge/language%3A-Kotlin-blue)](https://kotlinlang.org)
 
