@@ -1,6 +1,3 @@
-<img src="mc_calculator.png" alt="mc-calculator-logo" width="50px" height="50px"/>
-<br>
-
 ### MC Calculator
 > MC Calculator helps you to make everyday basic arithmetic operations or complex calculations in modern design.
 
