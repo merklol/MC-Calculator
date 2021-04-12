@@ -24,9 +24,11 @@
 
 package com.maximcode.mccalculator.models
 
+import android.view.HapticFeedbackConstants
 import android.view.View
 import com.google.android.material.button.MaterialButton
 import com.jakewharton.rxbinding4.view.clicks
+import com.maximcode.mccalculator.R
 import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
 
@@ -37,7 +39,17 @@ class Keyboard @Inject constructor(private val ids: Array<Int>) {
     fun bindButtons(rootView: View, func: (String, Observable<Int>) -> Unit) = with(ids) {
         forEach { id ->
             val view: MaterialButton? = rootView.findViewById(id)
-            view?.let { func(view.text.toString(), view.clicks().map { id }) }
+            view?.let { button ->
+                func(view.text.toString(), view.clicks().doOnNext {
+                    if(id == R.id.clearBtn) {
+                        button.isHapticFeedbackEnabled = true
+                        button.performHapticFeedback(
+                            HapticFeedbackConstants.VIRTUAL_KEY,
+                            HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING
+                        )
+                    }
+                }.map { id })
+            }
         }
     }
 }

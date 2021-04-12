@@ -1,8 +1,11 @@
 ### MC Calculator
-> MC Calculator helps you to make everyday basic arithmetic operations or complex calculations in modern design.
+> Do everyday simple or complex calculations in modern design.
 
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE.md)
 [![Language](https://img.shields.io/badge/language%3A-Kotlin-blue)](https://kotlinlang.org)
+
+MC Calculator is a viable tool in an intuitive design for everyone from those who are looking for 
+basic arithmetic calculations to more advanced users.
 
 ### Screenshots
 
@@ -13,15 +16,16 @@
 ![Example screenshot](screenshot_land.png)
 
 ### Features
+- Supports the dark theme
+- Easy to use scientific calculator
 - Calculation history
+- Basic operations: addition, subtraction, division, multiplication
+- Advanced operations: percentages, square roots, exponentiation, exponential and factorial functions
+- Calculating with negative numbers
+- Parenthesis and nested parenthesis for complex equations calculation
+- Trigonometric and logarithmic functions
 - Constants: PI, e, ln2
 - Degree and radians calculations
-- Supports the dark and light theme
-- Calculating with negative numbers
-- Trigonometric and logarithmic functions
-- Parenthesis and nested parenthesis for complex equations calculation
-- Basic operations such as addition, subtraction, division, multiplication, percentage
-- Scientific operations such as trigonometric, logarithmic, square root, factorial and exponential functions
 
 ### Tech Stack & Open-source libraries
 

@@ -118,13 +118,11 @@ class CalculatorFragment
     }
 
     private fun renderLastExpression(state: CalculatorState) {
-        if(state.isNewExpression) {
-            binding.screen.lastExpression.text = when {
-                state.lastExpression.last.isNotEmpty() -> resources[Strings.LastExpression]
-                    .format(state.lastExpression.toFormattedString())
+        binding.screen.lastExpression.text = when {
+            state.lastExpression.last.isNotEmpty() -> resources[Strings.LastExpression]
+                .format(state.lastExpression.toFormattedString())
 
-                else -> state.lastExpression.toFormattedString()
-            }
+            else -> state.lastExpression.toFormattedString()
         }
     }
 }
