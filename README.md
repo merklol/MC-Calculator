@@ -21,7 +21,7 @@ basic arithmetic calculations to more advanced users.
 - Calculation history
 - Basic operations: addition, subtraction, division, multiplication
 - Advanced operations: percentages, square roots, exponentiation, exponential and factorial functions
-- Calculating with negative numbers
+- Calculations with negative numbers
 - Parenthesis and nested parenthesis for complex equations calculation
 - Trigonometric and logarithmic functions
 - Constants: PI, e, ln2
