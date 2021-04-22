@@ -5,6 +5,7 @@
 *.aab
 .gradle
 /local.properties
+/gradle.properties
 /.idea
 /.idea/caches
 /.idea/libraries

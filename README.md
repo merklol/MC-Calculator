@@ -1,4 +1,4 @@
-### MC Calculator
+## MC Calculator
 > Do everyday simple or complex calculations in modern design.
 
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE.md)
@@ -7,15 +7,7 @@
 MC Calculator is a viable tool in an intuitive design for everyone from those who are looking for 
 basic arithmetic calculations to more advanced users.
 
-### Screenshots
-
-![Example screenshot](screenshot.png)
-
-#### Scientific mode
-
-![Example screenshot](screenshot_land.png)
-
-### Features
+## Features
 - Supports the dark theme
 - Easy to use scientific calculator
 - Calculation history
@@ -27,34 +19,37 @@ basic arithmetic calculations to more advanced users.
 - Constants: PI, e, ln2
 - Degree and radians calculations
 
-### Tech Stack & Open-source libraries
+## Get it on
+
+[<img src="google-play-badge.png" width="200"/>](https://play.google.com/store/apps/details?id=com.maximcode.mccalculator)
+
+## Screenshots
+
+![Example screenshot](screenshot.png)
+
+### Scientific mode
+
+![Example screenshot](screenshot_land.png)
+
+
+## Tech Stack & Open-source libraries
 
 - Minimum SDK level 23
 - Kotlin
 - Dagger Hilt
-- Jetpack
-  - RecyclerView
-  - Room Database
-  - Navigation Component
 - Mockk
+- RxJava, RxBinding, [RxMvi](https://github.com/merklol/RxMvi)
 - [ViewBindingPropertyDelegate](https://github.com/kirich1409/ViewBindingPropertyDelegate)
-- RxJava
-- RxBinding
-- [RxMvi](https://github.com/merklol/RxMvi)
+- Jetpack(RecyclerView, Room Database, Navigation Component)
 
 
-### Get it on
-
-- Google Play
-- Huawei AppGallery
-
-### Suggestions
+## Suggestions
 
 If you have general suggestions, please feel free to submit a new 
 [Github issue](https://github.com/merklol/MC-Calculator/issues/new).
 
 
-### License
+## License
 
 All the code available under the MIT license. See [LICENSE](LICENSE.md).
 ```
