@@ -15,7 +15,7 @@
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
@@ -37,7 +37,7 @@ import kotlin.math.*
  */
 class DefaultEvaluator: Evaluator {
     private val parser = DefaultParser(precedenceTable, DefaultLexer())
-    private val history = Stack<Answer>()
+    private val history = LinkedList<Answer>()
 
     override fun evaluateExpression(expression: String, isInRadian: Boolean): Number = try {
         val expressionResult = calculate(parser.buildAST("$expression;"), isInRadian)
@@ -48,7 +48,7 @@ class DefaultEvaluator: Evaluator {
     }
 
     private fun calculate(nodes: List<Node>, isInRadian: Boolean): Number {
-        val stack = Stack<Double>()
+        val stack = LinkedList<Double>()
         nodes.forEach {
             when(it) {
                 is Add -> stack.push(stack.pop() + stack.pop())
@@ -104,7 +104,7 @@ class DefaultEvaluator: Evaluator {
                 )
                 is Logarithm -> stack.push(log10(stack.pop()))
                 is NLogarithm -> stack.push(ln(stack.pop()))
-                is LastAnswer -> stack.push(history.peek().expressionResult.toDouble())
+                is LastAnswer -> stack.push(history.peek()?.expressionResult?.toDouble())
                 is Pi -> stack.push(Math.PI)
                 is NaturalLog2 -> stack.push(ln(2.0))
                 is EulerNumber -> stack.push(Math.E)

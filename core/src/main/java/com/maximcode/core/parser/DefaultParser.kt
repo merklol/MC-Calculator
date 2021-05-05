@@ -15,7 +15,7 @@
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
@@ -39,7 +39,7 @@ class DefaultParser(
     private val lexer: Lexer): Parser {
 
     override fun buildAST(expression: String): List<Node> {
-        val stack = Stack<Node>()
+        val stack = LinkedList<Node>()
         val tokens = lexer.tokenize(expression).fold(mutableListOf<Node>(), { accumulator, value ->
             when {
                 table.containsKey(value) -> {
@@ -56,7 +56,7 @@ class DefaultParser(
 
                 value == BaseLexemes.RightBracket -> {
                     accumulator += collect(stack, listOf()) {
-                        stack.peek().value != BaseLexemes.LeftBracket
+                        stack.peek()?.value != BaseLexemes.LeftBracket
                     }
                     stack.pop()
                 }
@@ -71,12 +71,12 @@ class DefaultParser(
     }
 
     private tailrec fun collect(
-        stack: Stack<Node>, accumulator: List<Node>,
+        stack: LinkedList<Node>, accumulator: List<Node>,
         predicate: () -> Boolean): List<Node> = when (predicate()) {
         true -> collect(stack, accumulator + stack.pop(), predicate)
         else -> accumulator
     }
 
-    private fun isHigherPrecedence(value: String, operations: Map<String, Int>, node: Node) =
-        operations.containsKey(node.value) && operations[node.value]!! >= operations[value]!!
+    private fun isHigherPrecedence(value: String, operations: Map<String, Int>, node: Node?) =
+        operations.containsKey(node?.value) && operations[node?.value]!! >= operations[value]!!
 }
