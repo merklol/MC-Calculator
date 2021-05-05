@@ -77,7 +77,7 @@ object AppModule {
             R.id.cosBtn, R.id.logBtn, R.id.digit4Btn, R.id.digit5Btn, R.id.digit6Btn,
             R.id.subtractBtn, R.id.eBtn, R.id.tanBtn, R.id.sqrtBtn, R.id.digit1Btn,
             R.id.digit2Btn, R.id.digit3Btn, R.id.addBtn, R.id.ansBtn, R.id.expBtn,
-            R.id.rndBtn, R.id.digit00Btn, R.id.dotBtn, R.id.equalsBtn
+            R.id.rndBtn, R.id.digit0Btn, R.id.digit00Btn, R.id.dotBtn, R.id.equalsBtn
         )
     }
 }
