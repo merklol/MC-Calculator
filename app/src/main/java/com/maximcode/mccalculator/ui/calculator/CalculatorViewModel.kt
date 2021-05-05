@@ -66,7 +66,7 @@ class CalculatorViewModel @Inject constructor(private val store: Store<Calculato
             R.id.sin1Btn, R.id.cos1Btn, R.id.tan1Btn, R.id.sinBtn, R.id.cosBtn, R.id.tanBtn,
                 R.id.lnBtn, R.id.logBtn -> CalculatorActions.KeyboardButtonClicked("$value(")
             R.id.factorialBtn -> CalculatorActions.KeyboardButtonClicked(Functions.Factorial)
-            else -> CalculatorActions.KeyboardButtonClicked(value.toLowerCase(Locale.ROOT))
+            else -> CalculatorActions.KeyboardButtonClicked(value.lowercase())
             }
         }
     }
