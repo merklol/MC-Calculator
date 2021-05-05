@@ -29,8 +29,7 @@ basic arithmetic calculations to more advanced users.
 
 ### Scientific mode
 
-![Example screenshot](screenshot_land.png)
-
+[<img src="screenshot_land.png" width="450"/>](screenshot_land.png)
 
 ## Tech Stack & Open-source libraries
 
