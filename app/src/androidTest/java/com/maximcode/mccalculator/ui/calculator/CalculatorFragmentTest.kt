@@ -24,24 +24,16 @@
 
 package com.maximcode.mccalculator.ui.calculator
 
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.testing.TestNavHostController
-import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
-import androidx.test.internal.runner.junit4.statement.UiThreadStatement.runOnUiThread
-import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import com.maximcode.mccalculator.R
 import com.maximcode.mccalculator.utils.InjectFragmentFactory
 import com.maximcode.mccalculator.utils.ScreenshotTestRule
 import com.maximcode.mccalculator.utils.launchFragmentInHiltContainer
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import org.hamcrest.CoreMatchers.`is`
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -51,21 +43,13 @@ import javax.inject.Inject
 class CalculatorFragmentTest {
     @get:Rule val hiltRule = HiltAndroidRule(this)
     @get:Rule val screenshotTestRule = ScreenshotTestRule()
-    private lateinit var navController: NavController
     @Inject
     lateinit var factory: InjectFragmentFactory
 
     @Before
     fun setup() {
         hiltRule.inject()
-        navController = TestNavHostController(ApplicationProvider.getApplicationContext())
-        runOnUiThread { navController.setGraph(R.navigation.nav_graph) }
-
-        launchFragmentInHiltContainer<CalculatorFragment>(
-            factory = factory
-        ) {
-            Navigation.setViewNavController(requireView(), navController)
-        }
+        launchFragmentInHiltContainer<CalculatorFragment>(factory = factory) {}
     }
 
     @Test
@@ -109,12 +93,5 @@ class CalculatorFragmentTest {
         onView(withId(R.id.digit7Btn)).perform(click())
         onView(withId(R.id.equalsBtn)).perform(click())
         onView(withId(R.id.expression)).check(matches(withText("7")))
-    }
-
-    @Test
-    fun when_history_menu_item_clicked_it_navigates_to_the_history_fragment() {
-        openActionBarOverflowOrOptionsMenu(getInstrumentation().targetContext)
-        onView(withText("History")).perform(click())
-        assertThat(navController.currentDestination?.id, `is`(R.id.historyFragment))
     }
 }
