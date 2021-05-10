@@ -33,18 +33,16 @@ import com.maximcode.mccalculator.R
 import com.maximcode.mccalculator.ui.history.historylist.HistoryAdapter
 import com.maximcode.mccalculator.databinding.FragmentHistoryBinding
 import com.maximcode.mccalculator.dto.HistoryState
+import com.maximcode.mccalculator.ui.pager.PageFragment
 import com.maximcode.mccalculator.ui.history.historylist.decorations.HistoryMarginDecoration
-import com.maximcode.rxmvi.view.RxMviFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class HistoryFragment
-@Inject constructor(private val adapter: HistoryAdapter)
-    : RxMviFragment<HistoryState, HistoryViewModel>(R.layout.fragment_history) {
-
-    override val viewModel: HistoryViewModel by viewModels()
+class HistoryFragment @Inject constructor(private val adapter: HistoryAdapter)
+    : PageFragment<HistoryState, HistoryViewModel>(R.layout.fragment_history) {
     private val binding: FragmentHistoryBinding by viewBinding()
+    override val viewModel: HistoryViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,12 +63,20 @@ class HistoryFragment
         inflater.inflate(R.menu.menu_history, menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.actionClearHistory) {
-            viewModel.clearAllRecords()
+    override fun onOptionsItemSelected(item: MenuItem) =  when(item.itemId) {
+            android.R.id.home -> {
+                findViewPager().setCurrentItem(0, true)
+                true
+            }
+
+            R.id.actionClearHistory -> {
+                viewModel.clearAllRecords()
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
         }
-        return super.onOptionsItemSelected(item)
-    }
+
 
     private fun setupRecyclerView() {
         binding.historyView.layoutManager = LinearLayoutManager(context)
