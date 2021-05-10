@@ -25,6 +25,7 @@
 package com.maximcode.mccalculator.di
 
 import androidx.fragment.app.Fragment
+import com.maximcode.mccalculator.ui.pager.ViewPagerFragment
 import com.maximcode.mccalculator.ui.calculator.CalculatorFragment
 import com.maximcode.mccalculator.ui.history.HistoryFragment
 import dagger.Binds
@@ -49,4 +50,9 @@ abstract class FragmentFactoryModule {
     @IntoMap
     @FragmentKey(HistoryFragment::class)
     abstract fun bindsHistoryFragment(fragment: HistoryFragment): Fragment
+
+    @Binds
+    @IntoMap
+    @FragmentKey(ViewPagerFragment::class)
+    abstract fun bindsCalculatorPagerFragment(fragment: ViewPagerFragment): Fragment
 }
