@@ -32,7 +32,7 @@ import javax.inject.Singleton
 
 enum class Strings {
     Radians, Degree, LastExpression, ClearAll, Clear, EmailAddress,
-    EmailSubject, EmailBody, PrivacyPolicyUrl, Today
+    EmailSubject, EmailBody, PrivacyPolicyUrl, Today, History
 }
 
 /**
@@ -51,7 +51,8 @@ class StringResources
         Strings.EmailSubject to context.getString(R.string.feedback_email_subject),
         Strings.EmailBody to context.getString(R.string.feedback_email_body),
         Strings.PrivacyPolicyUrl to context.getString(R.string.privacy_policy_url),
-        Strings.Today to context.getString(R.string.recycler_view_item_today)
+        Strings.Today to context.getString(R.string.recycler_view_item_today),
+        Strings.History to context.getString(R.string.action_history)
     )
 
     operator fun get(key: Strings) = resources[key] ?: ""
