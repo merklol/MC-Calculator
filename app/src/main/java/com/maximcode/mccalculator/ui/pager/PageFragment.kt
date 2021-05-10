@@ -22,37 +22,14 @@
  * SOFTWARE.
  */
 
-package com.maximcode.mccalculator.di
+package com.maximcode.mccalculator.ui.pager
 
-import androidx.fragment.app.Fragment
-import com.maximcode.mccalculator.ui.pager.ViewPagerFragment
-import com.maximcode.mccalculator.ui.calculator.CalculatorFragment
-import com.maximcode.mccalculator.ui.history.HistoryFragment
-import dagger.Binds
-import dagger.Module
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import dagger.multibindings.IntoMap
+import androidx.annotation.LayoutRes
+import com.maximcode.rxmvi.view.RxMviFragment
+import com.maximcode.rxmvi.view.RxMviViewModel
 
-/**
- * Provides dependencies for the Fragment Factory.
- */
-@Module
-@InstallIn(SingletonComponent::class)
-abstract class FragmentFactoryModule {
+abstract class PageFragment<State, ViewModel: RxMviViewModel<State>>(
+    @LayoutRes contentLayoutId: Int) : RxMviFragment<State, ViewModel>(contentLayoutId) {
 
-    @Binds
-    @IntoMap
-    @FragmentKey(CalculatorFragment::class)
-    abstract fun bindsCalculatorFragment(fragment: CalculatorFragment): Fragment
-
-    @Binds
-    @IntoMap
-    @FragmentKey(HistoryFragment::class)
-    abstract fun bindsHistoryFragment(fragment: HistoryFragment): Fragment
-
-    @Binds
-    @IntoMap
-    @FragmentKey(ViewPagerFragment::class)
-    abstract fun bindsCalculatorPagerFragment(fragment: ViewPagerFragment): Fragment
+    fun findViewPager() = (requireParentFragment() as ViewPagerFragment).viewPager
 }

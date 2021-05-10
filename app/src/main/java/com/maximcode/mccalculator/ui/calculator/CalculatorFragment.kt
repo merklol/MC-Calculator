@@ -27,8 +27,6 @@ package com.maximcode.mccalculator.ui.calculator
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import by.kirich1409.viewbindingdelegate.internal.findRootView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.maximcode.mccalculator.*
 import com.maximcode.mccalculator.databinding.FragmentCalculatorBinding
@@ -40,7 +38,7 @@ import com.maximcode.mccalculator.models.Keyboard
 import com.maximcode.mccalculator.models.LoadedAd
 import com.maximcode.mccalculator.models.StringResources
 import com.maximcode.mccalculator.models.Strings
-import com.maximcode.rxmvi.view.RxMviFragment
+import com.maximcode.mccalculator.ui.pager.PageFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -48,11 +46,11 @@ import javax.inject.Inject
 class CalculatorFragment
 @Inject constructor(
     private val keyboard: Keyboard,
-    private val resources: StringResources,
-    private val loadedAd: LoadedAd
-    ): RxMviFragment<CalculatorState, CalculatorViewModel>(R.layout.fragment_calculator) {
-    override val viewModel: CalculatorViewModel by viewModels()
+    private var resources: StringResources,
+    private val loadedAd: LoadedAd)
+    : PageFragment<CalculatorState, CalculatorViewModel>(R.layout.fragment_calculator) {
     private val binding: FragmentCalculatorBinding by viewBinding()
+    override val viewModel: CalculatorViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,7 +60,7 @@ class CalculatorFragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        keyboard.bindButtons(findRootView(requireActivity()), viewModel::bindButtons)
+        keyboard.bindButtons(requireView(), viewModel::bindButtons)
     }
 
     override fun render(state: CalculatorState) {
@@ -79,7 +77,7 @@ class CalculatorFragment
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.actionHistory -> {
             loadedAd.show(requireActivity())
-            findNavController().navigate(R.id.action_mainFragment_to_historyFragment)
+            findViewPager().setCurrentItem(1, true)
             true
         }
 

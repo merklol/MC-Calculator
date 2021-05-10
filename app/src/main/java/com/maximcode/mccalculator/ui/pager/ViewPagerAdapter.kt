@@ -22,37 +22,19 @@
  * SOFTWARE.
  */
 
-package com.maximcode.mccalculator.di
+package com.maximcode.mccalculator.ui.pager
 
 import androidx.fragment.app.Fragment
-import com.maximcode.mccalculator.ui.pager.ViewPagerFragment
-import com.maximcode.mccalculator.ui.calculator.CalculatorFragment
-import com.maximcode.mccalculator.ui.history.HistoryFragment
-import dagger.Binds
-import dagger.Module
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import dagger.multibindings.IntoMap
+import androidx.viewpager2.adapter.FragmentStateAdapter
 
-/**
- * Provides dependencies for the Fragment Factory.
- */
-@Module
-@InstallIn(SingletonComponent::class)
-abstract class FragmentFactoryModule {
+class ViewPagerAdapter(parent: Fragment, private val fragmentList: List<Fragment>)
+    : FragmentStateAdapter(parent) {
 
-    @Binds
-    @IntoMap
-    @FragmentKey(CalculatorFragment::class)
-    abstract fun bindsCalculatorFragment(fragment: CalculatorFragment): Fragment
+    companion object {
+        const val CalculatorPage = 0
+        const val HistoryPage = 1
+    }
 
-    @Binds
-    @IntoMap
-    @FragmentKey(HistoryFragment::class)
-    abstract fun bindsHistoryFragment(fragment: HistoryFragment): Fragment
-
-    @Binds
-    @IntoMap
-    @FragmentKey(ViewPagerFragment::class)
-    abstract fun bindsCalculatorPagerFragment(fragment: ViewPagerFragment): Fragment
+    override fun getItemCount() = fragmentList.size
+    override fun createFragment(position: Int) = fragmentList[position]
 }
