@@ -3,24 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/viewPagerFragment">
+
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.maximcode.mccalculator.ui.calculator.CalculatorFragment"
+        android:id="@+id/viewPagerFragment"
+        android:name="com.maximcode.mccalculator.ui.pager.ViewPagerFragment"
         android:label=""
-        tools:layout="@layout/fragment_calculator">
-        <action
-            android:id="@+id/action_mainFragment_to_historyFragment"
-            app:destination="@id/historyFragment"
-            app:enterAnim="@anim/from_left"
-            app:exitAnim="@anim/to_right"
-            app:popEnterAnim="@anim/from_right"
-            app:popExitAnim="@anim/to_left" />
-    </fragment>
-    <fragment
-        android:id="@+id/historyFragment"
-        android:name="com.maximcode.mccalculator.ui.history.HistoryFragment"
-        android:label="History"
-        tools:layout="@layout/fragment_history">
-    </fragment>
+        tools:layout="@layout/fragment_viewpager"/>
 </navigation>
