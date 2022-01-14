@@ -25,43 +25,37 @@
 package com.maximcode.mccalculator.models
 
 import android.app.Activity
-import android.content.Context
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.*
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.maximcode.mccalculator.BuildConfig
-import dagger.hilt.android.qualifiers.ApplicationContext
-import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * Loads and shows InterstitialAd.
  */
-@Singleton
-class LoadedAd
-@Inject constructor(
-    @ApplicationContext private val context: Context
-    ) {
-    private var interstitialAd: InterstitialAd? = null
+class CalculatorInterstitialAd constructor(private val activity: Activity) {
+    private var ad: InterstitialAd? = null
 
-    private val adLoadCallback = object: InterstitialAdLoadCallback() {
-        override fun onAdFailedToLoad(p0: LoadAdError) {
-            super.onAdFailedToLoad(p0)
-            interstitialAd = null
+    private val adLoadCallback = object : InterstitialAdLoadCallback() {
+        override fun onAdFailedToLoad(error: LoadAdError) {
+            super.onAdFailedToLoad(error)
+            ad = null
         }
-        override fun onAdLoaded(p0: InterstitialAd) {
-            super.onAdLoaded(p0)
-            interstitialAd = p0
+
+        override fun onAdLoaded(ad: InterstitialAd) {
+            super.onAdLoaded(ad)
+            this@CalculatorInterstitialAd.ad = ad
         }
     }
 
     fun load() {
-        InterstitialAd.load(context, BuildConfig.InterstitialId,
-            AdRequest.Builder().build(), adLoadCallback)
+        InterstitialAd.load(
+            activity.applicationContext, BuildConfig.InterstitialAdId,
+            AdRequest.Builder().build(), adLoadCallback
+        )
     }
 
     fun show(activity: Activity) {
-        interstitialAd?.show(activity)
+        ad?.show(activity)
     }
 }
