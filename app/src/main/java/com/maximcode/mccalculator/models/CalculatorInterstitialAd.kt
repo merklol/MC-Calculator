@@ -26,8 +26,7 @@ package com.maximcode.mccalculator.models
 
 import android.app.Activity
 import android.content.Context
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.*
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.maximcode.mccalculator.BuildConfig
@@ -39,17 +38,18 @@ import javax.inject.Singleton
  * Loads and shows InterstitialAd.
  */
 @Singleton
-class LoadedAd
+class InterstitialAdLoader
 @Inject constructor(
     @ApplicationContext private val context: Context
-    ) {
+) {
     private var interstitialAd: InterstitialAd? = null
 
-    private val adLoadCallback = object: InterstitialAdLoadCallback() {
+    private val adLoadCallback = object : InterstitialAdLoadCallback() {
         override fun onAdFailedToLoad(p0: LoadAdError) {
             super.onAdFailedToLoad(p0)
             interstitialAd = null
         }
+
         override fun onAdLoaded(p0: InterstitialAd) {
             super.onAdLoaded(p0)
             interstitialAd = p0
@@ -57,11 +57,61 @@ class LoadedAd
     }
 
     fun load() {
-        InterstitialAd.load(context, BuildConfig.InterstitialId,
-            AdRequest.Builder().build(), adLoadCallback)
+        InterstitialAd.load(
+            context, BuildConfig.InterstitialId,
+            AdRequest.Builder().build(), adLoadCallback
+        )
     }
 
     fun show(activity: Activity) {
         interstitialAd?.show(activity)
+    }
+}
+
+class LoadableInterstitialAd : InterstitialAd() {
+    private val interstitialAd: InterstitialAd? = null
+
+    override fun getAdUnitId() = interstitialAd?.adUnitId ?: ""
+
+    override fun show(activity: Activity) {
+        interstitialAd?.show(activity)
+    }
+
+    override fun setFullScreenContentCallback(
+        fullScreenContentCallback: FullScreenContentCallback?
+    ) {
+        interstitialAd?.fullScreenContentCallback = fullScreenContentCallback
+    }
+
+    override fun getFullScreenContentCallback(): FullScreenContentCallback? =
+        interstitialAd?.fullScreenContentCallback
+
+    override fun setImmersiveMode(enabled: Boolean) {
+       interstitialAd?.setImmersiveMode(enabled)
+    }
+
+    override fun getResponseInfo() = interstitialAd?.responseInfo
+
+    override fun setOnPaidEventListener(onPaidEventListener: OnPaidEventListener?) {
+        interstitialAd?.onPaidEventListener = onPaidEventListener
+    }
+
+    override fun getOnPaidEventListener(): OnPaidEventListener? =
+        interstitialAd?.onPaidEventListener
+}
+
+fun loadInterstitialAd(activity: Activity, adUnitId: String): Any {
+    return object {
+        private var ad: InterstitialAd? = null
+
+        operator fun invoke() {
+            InterstitialAd.load(activity.applicationContext, adUnitId, AdRequest.Builder().build(),
+                object : InterstitialAdLoadCallback() {
+                    override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                        super.onAdLoaded(interstitialAd)
+                        ad = interstitialAd
+                    }
+                })
+        }
     }
 }
