@@ -25,19 +25,22 @@
 package com.maximcode.mccalculator.ui.calculator
 
 import android.os.Bundle
-import android.view.*
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.maximcode.mccalculator.*
+import com.maximcode.mccalculator.R
 import com.maximcode.mccalculator.databinding.FragmentCalculatorBinding
 import com.maximcode.mccalculator.dto.CalculatorState
+import com.maximcode.mccalculator.models.CalculatorInterstitialAd
+import com.maximcode.mccalculator.models.Keyboard
+import com.maximcode.mccalculator.models.StringResources
+import com.maximcode.mccalculator.models.Strings
 import com.maximcode.mccalculator.models.expression.Expression
 import com.maximcode.mccalculator.models.intents.SendEmailIntent
 import com.maximcode.mccalculator.models.intents.ViewURLIntent
-import com.maximcode.mccalculator.models.Keyboard
-import com.maximcode.mccalculator.models.LoadedAd
-import com.maximcode.mccalculator.models.StringResources
-import com.maximcode.mccalculator.models.Strings
 import com.maximcode.mccalculator.ui.pager.PageFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -46,16 +49,16 @@ import javax.inject.Inject
 class CalculatorFragment
 @Inject constructor(
     private val keyboard: Keyboard,
-    private var resources: StringResources,
-    private val loadedAd: LoadedAd)
-    : PageFragment<CalculatorState, CalculatorViewModel>(R.layout.fragment_calculator) {
+    private var resources: StringResources
+) : PageFragment<CalculatorState, CalculatorViewModel>(R.layout.fragment_calculator) {
     private val binding: FragmentCalculatorBinding by viewBinding()
+    private val ad by lazy { CalculatorInterstitialAd(requireActivity()) }
     override val viewModel: CalculatorViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
-        loadedAd.load()
+        ad.load()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -76,7 +79,7 @@ class CalculatorFragment
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.actionHistory -> {
-            loadedAd.show(requireActivity())
+            ad.show(requireActivity())
             findViewPager().setCurrentItem(1, true)
             true
         }
@@ -87,8 +90,10 @@ class CalculatorFragment
         }
 
         R.id.actionSendFeedback -> {
-            SendEmailIntent(resources[Strings.EmailAddress], resources[Strings.EmailSubject],
-                resources[Strings.EmailBody]).launch(requireActivity())
+            SendEmailIntent(
+                resources[Strings.EmailAddress], resources[Strings.EmailSubject],
+                resources[Strings.EmailBody]
+            ).launch(requireActivity())
             true
         }
 
